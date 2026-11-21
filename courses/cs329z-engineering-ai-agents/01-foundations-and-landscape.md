@@ -17,11 +17,12 @@
 
 ```mermaid
 flowchart TD
-    P["Planning &<br/>Reasoning"] --> L["LLM Core"]
+    P["Planning & Reasoning"] --> L["LLM Core"]
     M["Memory"] --> L
-    L --> T["Tools"]
-    T -- Act --> E["Env<br/><br/>Desktop OS,<br/>Web Browser,<br/>Databases"]
-    E -- Observe --> M
+    L --> T["Tools<br/><i>Retrieval, Calculator, Code, Search, Read/Write Memory…</i>"]
+    T --> A["Agent actions: tool call, interaction, response to users"]
+    A -- act --> E["Environment<br/>(external world)<br/><br/>Desktop OS,<br/>Web browser,<br/>Mobile apps,<br/>Games,<br/>Databases,<br/>etc"]
+    E -- observe --> L
 ```
 
 ## Reasoning patterns
