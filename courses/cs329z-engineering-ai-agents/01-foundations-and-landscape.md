@@ -30,3 +30,4 @@ flowchart TD
 - **ReAct** — interleaves reasoning with actions: think, call a tool, read the observation, think again.
 - **ReAct + Reflection** — after acting, the agent critiques its own trace or output and retries using that feedback.
 - **Multi agent debate** — several model instances answer, then critique each other over rounds until they converge on one answer.
+- **Multi agent reasoning** — an orchestrator agent decomposes the task, delegates sub-tasks to worker agents, and combines what they return.
