@@ -23,3 +23,10 @@ flowchart TD
     T -- Act --> E["Env<br/><br/>Desktop OS,<br/>Web Browser,<br/>Databases"]
     E -- Observe --> M
 ```
+
+## Reasoning patterns
+
+- **CoT (chain-of-thought)** — the model writes out intermediate steps before answering, which helps on multi-step problems.
+- **ReAct** — interleaves reasoning with actions: think, call a tool, read the observation, think again.
+- **ReAct + Reflection** — after acting, the agent critiques its own trace or output and retries using that feedback.
+- **Multi agent debate** — several model instances answer, then critique each other over rounds until they converge on one answer.
