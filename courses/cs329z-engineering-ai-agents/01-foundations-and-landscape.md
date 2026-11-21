@@ -41,3 +41,10 @@ flowchart LR
 - **Episodic memory** — the agent's record of specific past events: what it did, what it observed, and when. Kept raw: full traces, not distilled.
 - **Semantic memory** — facts and knowledge about the world, stored without the time or place they were learned. Usually produced by summarizing episodes.
 - **Procedural memory** — how to do things: skills, routines, and tool-use patterns the agent can apply without re-deriving them.
+
+## Tools
+
+- A tool is any function the model can't run itself: retrieval, calculator, code execution, search, read/write memory.
+- The model doesn't call the tool directly. It emits a structured call (name + arguments), the harness executes it, and the result comes back as an observation.
+- Tool schemas are part of the prompt, so the description and argument types shape how well the model uses them.
+- Tools are what let the agent change the world rather than only talk about it — the "act" edge in the diagram.
