@@ -38,6 +38,6 @@ flowchart LR
 
 ## Memory
 
-- **Episodic memory** — the agent's record of specific past events: what it did, what it observed, and when.
-- **Semantic memory** — facts and knowledge about the world, stored without the time or place they were learned.
+- **Episodic memory** — the agent's record of specific past events: what it did, what it observed, and when. Kept raw: full traces, not distilled.
+- **Semantic memory** — facts and knowledge about the world, stored without the time or place they were learned. Usually produced by summarizing episodes.
 - **Procedural memory** — how to do things: skills, routines, and tool-use patterns the agent can apply without re-deriving them.
