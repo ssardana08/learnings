@@ -35,3 +35,9 @@ flowchart LR
 - **ReAct + Reflection** — after acting, the agent critiques its own trace or output and retries using that feedback.
 - **Multi agent debate** — several model instances answer, then critique each other over rounds until they converge on one answer.
 - **Multi agent orchestration** — an orchestrator agent decomposes the task, delegates sub-tasks to worker agents, and combines what they return.
+
+## Memory
+
+- **Episodic memory** — the agent's record of specific past events: what it did, what it observed, and when.
+- **Semantic memory** — facts and knowledge about the world, stored without the time or place they were learned.
+- **Procedural memory** — how to do things: skills, routines, and tool-use patterns the agent can apply without re-deriving them.
