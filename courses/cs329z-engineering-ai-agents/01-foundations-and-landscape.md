@@ -16,11 +16,14 @@
 ## Anatomy of an agent
 
 ```mermaid
-flowchart TD
-    P["Planning & Reasoning"] --> L["LLM Core"]
-    M["Memory"] --> L
-    L --> T["Tools<br/><i>Retrieval, Calculator, Code, Search, Read/Write Memory…</i>"]
-    T --> A["Agent actions: tool call, interaction, response to users"]
+flowchart LR
+    subgraph core[" "]
+        direction TB
+        P["Planning & Reasoning"] --> L["LLM Core"]
+        M["Memory"] --> L
+        L --> T["Tools<br/><i>Retrieval, Calculator, Code, Search, Read/Write Memory…</i>"]
+        T --> A["Agent actions: tool call, interaction, response to users"]
+    end
     A -- act --> E["Environment<br/>(external world)<br/><br/>Desktop OS,<br/>Web browser,<br/>Mobile apps,<br/>Games,<br/>Databases,<br/>etc"]
     E -- observe --> L
 ```
