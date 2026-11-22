@@ -43,6 +43,8 @@ The model scores every token in its vocabulary, then one token is picked. How yo
 - **Greedy** — take the highest-probability token. Deterministic: same prompt, same output, and it can loop.
 - **Top-k** — keep the k most likely tokens and sample one of them. A fixed count, regardless of how confident the model is.
 - **Top-p** — keep the most likely tokens until their probabilities add up to p, then sample one of them. Adaptive: few options when the model is confident, many when it isn't.
+- **Temperature** — divides the scores before the softmax, reshaping the distribution: below 1 sharpens it toward greedy, above 1 flattens it toward uniform. Usually applied together with top-p.
+- **Beam search** — keep the `b` best partial sequences at every step, score each by its total log-probability, and return the highest-scoring one. Deterministic like greedy, but it explores several paths instead of one.
 
 `p` is a threshold you set, not a probability of any token. Example, prompt `The cat sat on the ___`:
 
