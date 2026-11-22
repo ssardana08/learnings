@@ -35,3 +35,25 @@ flowchart TB
 ```
 
 LLMs are generative — that's what the product of conditionals above describes. A classifier or a reward model sitting on top of one is discriminative.
+
+## Sampling strategies
+
+The model scores every token in its vocabulary, then one token is picked. How you pick:
+
+- **Greedy** — take the highest-probability token. Deterministic: same prompt, same output, and it can loop.
+- **Top-k** — keep the k most likely tokens and sample one of them. A fixed count, regardless of how confident the model is.
+- **Top-p** — keep the most likely tokens until their probabilities add up to p, then sample one of them. Adaptive: few options when the model is confident, many when it isn't.
+
+`p` is a threshold you set, not a probability of any token. Example, prompt `The cat sat on the ___`:
+
+| token | prob | running total |
+| --- | --- | --- |
+| mat | 0.45 | 0.45 |
+| floor | 0.25 | 0.70 |
+| rug | 0.12 | 0.82 |
+| couch | 0.08 | **0.90** ← top-p stops here |
+| moon | 0.001 | 0.901 |
+
+- Greedy → always `mat`.
+- Top-k with `k=4` → the four most likely tokens, `moon` and the rest dropped.
+- Top-p with `p=0.9` → the same four here, because they're the smallest set that reaches 0.9. With `p=0.5` you'd stop after `floor`.
