@@ -19,3 +19,19 @@ In practice the product is computed as a sum of logs, because multiplying many n
 $$\log p(x_1, \dots, x_n) = \sum_{i=1}^{n} \log p(x_i \mid x_{<i})$$
 
 Training minimises the negative of that sum — cross-entropy loss — so the model raises the log-probability it assigns to the tokens that actually came next.
+
+## Types of language models
+
+Two families, split by what they learn:
+
+- **Discriminative** — learns to distinguish classes: models $P(y \mid x)$ and draws a boundary between them. *e.g. logistic regression, SVM*
+- **Generative** — learns the distribution of the data: models $P(x)$ or $P(x \mid y)$ and can sample new data. *e.g. naive Bayes, diffusion models*
+
+```mermaid
+flowchart TB
+    LM["Language models"]
+    LM --> D["<b>Discriminative</b><br/>learns P(y | x)<br/>draws a boundary between classes<br/><i>e.g. logistic regression, SVM</i>"]
+    LM --> G["<b>Generative</b><br/>learns P(x) or P(x | y)<br/>models the distribution of the data<br/><i>e.g. naive Bayes, diffusion models</i>"]
+```
+
+LLMs are generative — that's what the product of conditionals above describes. A classifier or a reward model sitting on top of one is discriminative.
